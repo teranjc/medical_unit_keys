@@ -4,7 +4,7 @@ import Button from 'primevue/button';
 import InputSwitch from 'primevue/inputswitch';
 import Sidebar from 'primevue/sidebar';
 
-import { ref } from 'vue';
+import { ref, onMounted } from 'vue';
 import { useLayout } from '@/layout/composables/layout';
 
 defineProps({
@@ -46,6 +46,10 @@ const incrementScale = () => {
 const applyScale = () => {
     document.documentElement.style.fontSize = layoutConfig.scale.value + 'px';
 };
+
+onMounted(() => {
+  onChangeTheme('tailwind-light', 'light');
+});
 </script>
 
 <template>
